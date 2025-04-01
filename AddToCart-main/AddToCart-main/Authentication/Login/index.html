@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .floating-shapes::before,
+        .floating-shapes::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 20%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 6s infinite ease-in-out alternate;
+        }
+
+        .floating-shapes::before {
+            top: 10%;
+            left: 5%;
+        }
+
+        .floating-shapes::after {
+            bottom: 10%;
+            right: 5%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Alert Container */
+        #custom-alert {
+            position: fixed;
+            top: 50px;
+            /* Increased from 20px to 50px */
+            left: 57.5%;
+            transform: translateX(-50%);
+            width: auto;
+            min-width: 280px;
+            max-width: 450px;
+            z-index: 9999;
+        }
+
+
+        /* Alert Box Style */
+        #alert-box {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            background-color: #22c55e;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Icon Style */
+        .alert-icon {
+            width: 28px;
+            height: 28px;
+            margin-right: 12px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alert-icon svg {
+            width: 16px;
+            height: 16px;
+            color: #22c55e;
+        }
+
+        /* Alert Message */
+        .alert-content {
+            font-weight: 500;
+            flex-grow: 1;
+        }
+
+        /* Close Button */
+        .alert-close {
+            font-size: 1.2rem;
+            margin-left: 12px;
+            cursor: pointer;
+            color: #fff;
+            transition: transform 0.2s ease;
+        }
+
+        .alert-close:hover {
+            transform: scale(1.1);
+        }
+
+        /* Show & Hide Animations */
+        .show-alert {
+            animation: slideDownFade 0.3s ease-out forwards;
+        }
+
+        .hide-alert {
+            animation: slideUpFade 0.3s ease-in forwards;
+        }
+
+        @keyframes slideDownFade {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @keyframes slideUpFade {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-custom flex items-center justify-center min-h-screen overflow-hidden relative floating-shapes">
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-md mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden animate-fade-in">
+            <div class="p-8">
+                <!-- Header -->
+                <div class="text-center mb-6">
+                    <h2 class="text-3xl font-bold text-gray-800">Login</h2>
+                    <p class="text-gray-600 mt-2">Welcome back! Please enter your details.</p>
+                </div>
+
+                <!-- Form -->
+                <form class="space-y-4" id="login-form">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i data-lucide="mail" class="w-5 h-5 text-gray-400"></i>
+                            </div>
+                            <input type="email" id="email"
+                                class="mt-1 block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-4 focus:ring-purple-300 transition duration-300"
+                                placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i data-lucide="lock" class="w-5 h-5 text-gray-400"></i>
+                            </div>
+                            <input type="password" id="password"
+                                class="mt-1 block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-4 focus:ring-purple-300 transition duration-300"
+                                placeholder="Enter your password">
+                        </div>
+                    </div>
+                    <!-- Remember and Forgot -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" type="checkbox"
+                                class="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+                                Remember me
+                            </label>
+                        </div>
+
+                        <div class="text-sm">
+                            <a href="#"
+                                class="font-medium text-purple-600 hover:text-purple-500 transition duration-300">
+                                Forgot password?
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Sign In Button -->
+                    <div class="mt-4">
+                        <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-lg shadow-lg text-sm font-medium text-white bg-gradient-custom hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-purple-500 transition duration-300">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Sign Up Link -->
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-gray-600">
+                        Don't have an account?
+                        <a href="../Register/index.html"
+                            class="font-medium text-purple-600 hover:text-purple-500 transition duration-300">
+                            Sign up
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="custom-alert" class="hidden">
+        <div id="alert-box">
+            <div class="alert-icon" id="alert-icon"></div>
+            <div class="alert-content" id="alert-message">Success Message</div>
+            <div class="alert-close" onclick="closeAlert()">×</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

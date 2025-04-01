@@ -1,0 +1,452 @@
+ /* Professional Card */
+ .product-card {
+     background: white;
+     border-radius: 12px;
+     padding: 16px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     border: 2px solid #e0e0e0;
+ }
+
+ .product-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+     border-color: #3498db;
+ }
+
+ /* Image */
+ .product-image {
+     width: 100%;
+     height: 160px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     overflow: hidden;
+     background: #f4f4f4;
+     border-radius: 8px;
+ }
+
+ .product-image img {
+     max-width: 100%;
+     max-height: 100%;
+     object-fit: contain;
+ }
+
+ /* Content */
+ .product-info {
+     padding: 12px 0;
+     flex-grow: 1;
+ }
+
+ .product-title {
+     font-size: 1rem;
+     font-weight: 600;
+     color: #2c3e50;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+
+ .product-description {
+     font-size: 0.85rem;
+     color: #7f8c8d;
+     margin-bottom: 10px;
+     height: 40px;
+     overflow: hidden;
+ }
+
+ .product-meta {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-weight: bold;
+     font-size: 0.9rem;
+ }
+
+ .price {
+     color: #27ae60;
+     /* Green */
+ }
+
+ .rating {
+     color: #f39c12;
+     /* Yellow */
+ }
+
+ /* Buttons */
+ .product-buttons {
+     display: flex;
+     gap: 8px;
+     margin-top: auto;
+ }
+
+ /* Universal Button Styling */
+ .btn-custom {
+     padding: 8px 12px;
+     /* Reduced padding */
+     font-size: 0.9rem;
+     /* Slightly smaller for a compact look */
+     font-weight: 600;
+     border-radius: 8px;
+     /* Slightly rounded edges */
+     transition: all 0.3s ease-in-out;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 6px;
+     width: 100%;
+ }
+
+ /* Add to Cart Button (Deep Blue) */
+ .btn-outline-success {
+     border: 2px solid #0052cc;
+     color: #fff;
+     background-color: #0052cc;
+ }
+
+ .btn-outline-success:hover {
+     background-color: #003d99;
+     border-color: #003d99;
+     color: white;
+     box-shadow: 0px 3px 8px rgba(0, 82, 204, 0.3);
+     transform: scale(1.03);
+ }
+
+ /* Details Button (Teal) */
+ .btn-outline-info {
+     border: 2px solid #009688;
+     color: #fff;
+     background-color: #009688;
+ }
+
+ .btn-outline-info:hover {
+     background-color: #00796b;
+     border-color: #00796b;
+     color: #fff;
+     box-shadow: 0px 3px 8px rgba(0, 150, 136, 0.3);
+     transform: scale(1.03);
+ }
+
+ /* Adjust modal body padding */
+ .modal-body {
+     padding: 0;
+ }
+
+ /* Toast Animation (Slide-in from Top) */
+ @keyframes slideInTop {
+     from {
+         transform: translateY(-100%);
+         opacity: 0;
+     }
+
+     to {
+         transform: translateY(0);
+         opacity: 1;
+     }
+ }
+
+ /* Progress Bar Animation */
+ @keyframes progress {
+     from {
+         width: 100%;
+     }
+
+     to {
+         width: 0%;
+     }
+ }
+
+ /* Fade-out Animation with Scale */
+ @keyframes fadeOutScale {
+     from {
+         transform: scale(1);
+         opacity: 1;
+     }
+
+     to {
+         transform: scale(0.9);
+         opacity: 0;
+     }
+ }
+
+ /* Toast Container (Stacks multiple toasts) */
+ #toastContainer {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     align-items: flex-end;
+     /* Align toasts to the right */
+     padding-top: 10px;
+     position: fixed;
+     top: 20px;
+     right: 20px;
+     z-index: 9999;
+ }
+
+ /* Toast Styling */
+ .custom-toast {
+     background-color: #ffffff;
+     /* White background */
+     color: #333;
+     /* Dark text */
+     border-left: 4px solid #4caf50;
+     /* Success Green accent */
+     border-radius: 6px;
+     padding: 12px 16px;
+     min-width: 300px;
+     max-width: 400px;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     opacity: 1;
+     animation: slideInTop 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+     position: relative;
+     overflow: hidden;
+ }
+
+ /* Success indicator */
+ .custom-toast p.fw-bold:before {
+     content: "✅";
+     margin-right: 8px;
+     color: #4caf50;
+ }
+
+ /* Progress bar */
+ .custom-toast:after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     height: 3px;
+     width: 100%;
+     background-color: #4caf50;
+     animation: progress 3s linear forwards;
+ }
+
+ /* Close button styling */
+ .custom-toast .btn-close {
+     background: transparent;
+     color: #777;
+     border: none;
+     font-size: 18px;
+     cursor: pointer;
+     opacity: 0.7;
+     transition: opacity 0.2s;
+     padding: 0;
+     margin-left: 12px;
+ }
+
+ .custom-toast .btn-close:hover {
+     opacity: 1;
+ }
+
+ /* Remove Toast After Animation */
+ .custom-toast.fade-out {
+     animation: fadeOutScale 0.3s ease-in-out forwards;
+ }
+
+ /* Add hover effect */
+ .custom-toast:hover {
+     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+     transform: translateY(-2px);
+     transition: transform 0.2s, box-shadow 0.2s;
+ }
+
+ /* Custom btn-close-white overrides */
+ .btn-close-white {
+     filter: none;
+     color: #555;
+ }
+
+ /* For slightly different toast types - you can add these later */
+ .custom-toast.warning {
+     border-left-color: #ff9800;
+ }
+
+ .custom-toast.error {
+     border-left-color: #f44336;
+ }
+
+ .custom-toast.info {
+     border-left-color: #2196f3;
+ }
+
+ .hover-text-success:hover {
+    color: #198754 !important;
+}
+
+/* User greeting styles */
+.user-greeting-btn:hover {
+    background-color: #f8f9fa;
+}
+
+.user-greeting-container .greeting-text {
+    transition: all 0.3s ease;
+}
+
+.user-greeting-btn:hover .greeting-text {
+    transform: translateX(2px);
+}
+
+@media (max-width: 576px) {
+    .greeting-text {
+        display: none;
+    }
+}
+
+/* User Profile Modal Styles */
+#userProfileModal .modal-content {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#userProfileModal .modal-header {
+    border-bottom: none;
+}
+
+#userProfileModal .modal-footer {
+    border-top: none;
+}
+
+#userProfileModal .badge {
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 30px;
+}
+
+#userProfileModal .row {
+    align-items: center;
+}
+
+/* Add hover effect to stats boxes */
+#userProfileModal .border {
+    transition: all 0.3s ease;
+    border-color: #e9ecef !important;
+}
+
+#userProfileModal .border:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-color: #ced4da !important;
+}
+
+/* Toast Container Styles */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+}
+
+/* Toast Notification Styles */
+.toast {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: white;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideIn 0.3s forwards, fadeOut 0.5s forwards 3.5s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Toast Types */
+.toast.success {
+    background-color: #10b981;
+}
+
+.toast.error {
+    background-color: #ef4444;
+}
+
+.toast.info {
+    background-color: #3b82f6;
+}
+
+.toast.warning {
+    background-color: #f59e0b;
+}
+
+/* Toast Icon */
+.toast-icon {
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+/* Toast Message */
+.toast-message {
+    flex: 1;
+}
+
+/* Toast Progress Bar */
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    animation: progress 4s linear forwards;
+}
+
+/* Toast Close Button */
+.toast-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    margin-left: 12px;
+    padding: 0;
+}
+
+.toast-close:hover {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+    }
+}
+
+@keyframes progress {
+    to {
+        width: 0%;
+    }
+}
+
+/* Small screen adjustments */
+@media (max-width: 576px) {
+    .toast-container {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}

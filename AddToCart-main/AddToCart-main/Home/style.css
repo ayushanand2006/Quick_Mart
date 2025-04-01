@@ -1,0 +1,578 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+.header-container {
+    position: sticky;
+    z-index: 1000;
+    background-color: #ffffff;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* Action Buttons */
+.btn-lg {
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-lg:hover {
+    transform: scale(1.05);
+}
+
+/* Cart Badge */
+#cart-count {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: pulse 1.5s infinite;
+    position: absolute;
+    z-index: 3;
+    width: 25px;
+    height: 25px;
+    bottom: 30px;
+    left: 75px;
+}
+
+.cart {
+    position: relative;
+}
+
+/* Pulse Animation for Badge */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Card Style */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1rem;
+    background-color: #fff;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    height: 250px;
+    object-fit: contain;
+    padding: 1rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Price and Badge */
+.price-tag {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #198754;
+}
+
+.badge {
+    background-color: #6c757d;
+    font-size: 0.8rem;
+}
+
+/* Buttons */
+.btn-custom {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+}
+
+.btn-outline-success:hover,
+.btn-outline-info:hover {
+    color: #fff;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+/* Footer */
+.footer-container {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    text-align: center;
+    color: #6c757d;
+}
+
+/* Maintain JavaScript Class */
+.row2 {
+    margin-top: 20px;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --color: hsl(0, 0%, 87%);
+    --animation: 2s ease-in-out infinite;
+    z-index: 9999;
+}
+
+/* From Uiverse.io by G4b413l */
+.newtons-cradle {
+    --uib-size: 50px;
+    --uib-speed: 1.2s;
+    --uib-color: #474554;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--uib-size);
+    height: var(--uib-size);
+}
+
+.newtons-cradle__dot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+    transform-origin: center top;
+}
+
+.newtons-cradle__dot::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 25%;
+    border-radius: 50%;
+    background-color: var(--uib-color);
+}
+
+.newtons-cradle__dot:first-child {
+    animation: swing var(--uib-speed) linear infinite;
+}
+
+.newtons-cradle__dot:last-child {
+    animation: swing2 var(--uib-speed) linear infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+
+    25% {
+        transform: rotate(70deg);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        animation-timing-function: linear;
+    }
+}
+
+@keyframes swing2 {
+    0% {
+        transform: rotate(0deg);
+        animation-timing-function: linear;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+
+    75% {
+        transform: rotate(-70deg);
+        animation-timing-function: ease-in;
+    }
+}
+
+/* Alert Container */
+#custom-alert {
+    position: fixed;
+    top: 85px;
+    /* Increased from 20px to 50px */
+    left: 57.5%;
+    transform: translateX(-50%);
+    width: auto;
+    min-width: 280px;
+    max-width: 450px;
+    z-index: 9999;
+}
+
+
+/* Alert Box Style */
+#alert-box {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    background-color: #22c55e;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Icon Style */
+.alert-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert-icon svg {
+    width: 16px;
+    height: 16px;
+    color: #22c55e;
+}
+
+/* Alert Message */
+.alert-content {
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+/* Close Button */
+.alert-close {
+    font-size: 1.2rem;
+    margin-left: 12px;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.2s ease;
+}
+
+.alert-close:hover {
+    transform: scale(1.1);
+}
+
+/* Show & Hide Animations */
+.show-alert {
+    animation: slideDownFade 0.3s ease-out forwards;
+}
+
+.hide-alert {
+    animation: slideUpFade 0.3s ease-in forwards;
+}
+
+@keyframes slideDownFade {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+}
+
+/* User Greeting Container */
+.user-greeting-container {
+    background-color: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 15px;
+    /* Optional for spacing from buttons */
+    transition: all 0.3s ease-in-out;
+}
+
+/* User Avatar Styling */
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #0d6efd;
+    /* Bootstrap primary color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Avatar Icon */
+.user-avatar i {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+/* Greeting Text Styling */
+.greeting-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Main Heading for Greeting */
+.greeting-text h1 {
+    font-size: 0.9rem;
+    color: #343a40;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+/* User Name Styling */
+.greeting-text p {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+/* Hover Effect */
+.user-greeting-container:hover {
+    background-color: #e9f5ff;
+    /* Light blue on hover */
+    transform: scale(1.03);
+    border-color: #b6e0fe;
+}
+
+/* Responsive Tweaks for Smaller Screens */
+@media (max-width: 768px) {
+    .user-greeting-container {
+        padding: 5px 10px;
+        gap: 8px;
+    }
+
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .user-avatar i {
+        font-size: 1rem;
+    }
+
+    .greeting-text h1 {
+        font-size: 0.85rem;
+    }
+
+    .greeting-text p {
+        font-size: 0.75rem;
+    }
+}
+
+/* Account Button Styling */
+.account-btn {
+    background-color: #f8f9fa;
+    border-color: #0d6efd;
+    color: #0d6efd;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Button Hover Effect */
+.account-btn:hover {
+    background-color: #0d6efd;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Dropdown Menu Styling */
+.custom-dropdown {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+    background-color: #fff;
+}
+
+/* Individual Dropdown Items */
+.custom-dropdown-item {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+    color: #495057;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+
+/* Dropdown Item Hover */
+.custom-dropdown-item:hover {
+    background-color: #e9f5ff;
+    /* Light blue */
+    color: #0d6efd;
+}
+
+/* Profile Item Icon */
+.custom-dropdown-item i {
+    font-size: 1rem;
+}
+
+/* Logout Item Specific Styling */
+.logout-item {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+/* Logout Hover Effect */
+.logout-item:hover {
+    background-color: #f8d7da;
+    color: #dc3545;
+}
+
+/* Dropdown Animation */
+.dropdown-menu {
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .account-btn {
+        padding: 8px 12px;
+    }
+
+    .custom-dropdown-item {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+}
+
+/* Logout Modal Custom Styling */
+#logoutModal .modal-content {
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+#logoutModal .modal-header {
+    background-color: #007bff;
+    border-bottom: 1px solid #e9ecef;
+    color: #fff;
+    font-weight: 700;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+#logoutModal .modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#logoutModal .modal-body {
+    font-size: 1rem;
+    color: #495057;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 0 0 1rem 1rem;
+}
+
+#logoutModal .modal-footer {
+    border-top: 1px solid #e9ecef;
+    padding: 1rem;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+/* Updated Cancel Button (Secondary) */
+#logoutModal .btn-secondary {
+    background: linear-gradient(135deg, #e0e0e0, #cfcfcf);
+    border: none;
+    color: #333;
+    border-radius: 0.75rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+#logoutModal .btn-secondary:hover {
+    background: linear-gradient(135deg, #d6d6d6, #bfbfbf);
+    color: #000;
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Updated Confirm Button (Danger) */
+#logoutModal .btn-danger {
+    background: red;
+    border: none;
+    color: #fff;
+    border-radius: 0.75rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+#logoutModal .btn-danger:hover {
+    background: red;
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(255, 75, 92, 0.2);
+}

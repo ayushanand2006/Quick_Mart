@@ -1,0 +1,12 @@
+Error is 
+
+ jab bhi mai remove button ko click karta tha tab selected item na remove ho kar last item remvoe hota hai
+
+Solution is
+
+Jab bhi Mai "Remove from Cart" pe click kare, toh hamesha last item delete ho raha tha, chahe koi bhi item remove karna ki kosis karu.
+
+aur ye kiski vajaha se ho raha tha .pop() function ki vajaha se.
+
+    To phir maine use remove kiya aur trial ke liye .filter() ka use kiya aise "cartData = cartData.filter((item, index) => index !== id);" is me maine .filter() ka use karke "cartData" me filter lagake uke ander "products ke item" and "products ke id" ko useke barabar kar diya to isse jabbhi mai us "Remove from Cart" pe click karu to vahi item delete hona chahiye jiski id same ho.
+

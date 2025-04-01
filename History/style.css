@@ -1,0 +1,322 @@
+/* Empty history ka style - jab koi item nahi hoga to yeh dikhega */
+.empty-history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Yeh ek colored line hai container ke top pe - smart dikhta hai */
+.empty-history-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, #6366f1, #4f46e5);
+}
+
+/* History ka icon container ke uper dikhane ke liye */
+.empty-history-illustration {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+/* Clock icon ka style - gray color mein dikhta hai */
+.empty-history-icon {
+    color: #9ca3af;
+    margin-bottom: 1rem;
+    stroke-width: 1;
+}
+
+/* Animation jo icon ke peeche hoga - pulse karta rahega */
+.empty-history-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    animation: pulse 2s infinite;
+    z-index: -1;
+}
+
+/* Pulse animation ke steps - chhota bada hota rahega */
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.5;
+    }
+}
+
+/* No History title ka style - bold dikhega */
+.empty-history-title {
+    color: #1f2937;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+/* Empty history ka message - chota text hai */
+.empty-history-message {
+    color: #6b7280;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+/* Return to Cart button ka style - black background aur round shape */
+.empty-history-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #000;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Jab button pe hover karenge tab color change hoga */
+.empty-history-button:hover {
+    background-color: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.2);
+    color: white;
+}
+
+/* Jab button pe click karenge tab thoda press hoga */
+.empty-history-button:active {
+    transform: translateY(0);
+}
+
+/* History items ka main card style - white box with shadow */
+.history-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover effect jab mouse card pe le jaenge - thoda uper uthega */
+.history-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Product image area ka container style */
+.product-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+}
+
+/* Product image ka style - poore area mein fit hona chahiye */
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Image pe hover effect - zoom in hoga thoda sa */
+.history-item:hover .product-image {
+    transform: scale(1.05);
+}
+
+/* Rating badge top-right corner mein - star ke saath */
+.rating-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FFD700;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Time jab remove hua tha wo dikhane ke liye gradient background */
+.removed-time {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    padding: 10px;
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Product details section - padding aur flex setup */
+.product-details {
+    padding: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Product title ka style - 2 lines tak show karega */
+.product-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    color: #1f2937;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Description text ka style - 2 lines mein limit */
+.product-description {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+/* Price dikhane ke liye style - bold aur thoda bada */
+.product-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 14px;
+}
+
+/* Button area ka layout - 2 column grid */
+.history-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+/* Dono buttons ka common style */
+.return-btn, .delete-btn {
+    padding: 8px 0;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Return to Cart button - blue color */
+.return-btn {
+    background-color: #4f46e5;
+    color: white;
+}
+
+/* Return button hover effect - thoda dark blue */
+.return-btn:hover {
+    background-color: #4338ca;
+}
+
+/* Delete button - red color */
+.delete-btn {
+    background-color: #ef4444;
+    color: white;
+}
+
+/* Delete button hover effect - dark red */
+.delete-btn:hover {
+    background-color: #dc2626;
+}
+
+/* Button icons ke liye space */
+.return-btn i, .delete-btn i {
+    margin-right: 5px;
+}
+
+/* History page ka header - white box with title */
+.history-header {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* History heading text ka style */
+.history-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Icon jo heading ke saath hai */
+.history-title i {
+    margin-right: 12px;
+    color: #4f46e5;
+}
+
+/* Clear history button - light gray */
+.clear-history-btn {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+/* Clear button hover effect */
+.clear-history-btn:hover {
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+
+/* Clear button ka icon */
+.clear-history-btn i {
+    margin-right: 8px;
+}
+

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to cart</title>
+
+    <!-- Bootstarap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <nav class="bg-white border-b border-gray-200 shadow-sm sticky-top">
+        <!-- Top Bar with Offers & Support -->
+        <div class="bg-dark text-white py-2 px-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div>
+                    <span>Free shipping on orders over $50</span>
+                </div>
+                <div class="d-flex align-items-center gap-4">
+                    <a href="#" class="text-white text-decoration-none hover-text-success">Help</a>
+                    <a href="#" class="text-white text-decoration-none hover-text-success">Track Order</a>
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none hover-text-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone me-1" viewBox="0 0 16 16">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Main Navbar -->
+        <div class="container py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- Brand Logo -->
+                <div class="d-flex align-items-center">
+                    <a href="#" class="d-flex align-items-center text-decoration-none gap-2">
+                        <div class="bg-success p-2 rounded-3 shadow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" class="bi bi-bag" viewBox="0 0 16 16">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                            </svg>
+                        </div>
+                        <span class="fs-4 fw-bold text-dark">QuickMart</span>
+                    </a>
+                </div>
+    
+                <!-- Bootstrap Search Bar -->
+                <div class="w-50">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0 text-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </span>
+                        <input type="text" class="form-control border-start-0" placeholder="Search for products...">
+                        <button class="btn btn-success" type="button">Search</button>
+                    </div>
+                </div>
+    
+                <!-- Nav Links and User Actions -->
+                <div class="d-flex align-items-center gap-3">
+                    <!-- Improved User Greeting Box -->
+    
+                    <!-- Cart Button -->
+                    <a href="../Cart/index.html" class="d-flex flex-column align-items-center text-decoration-none text-dark me-4">
+                        <div class="position-relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
+                            </div>
+                        <small>Cart</small>
+                    </a>
+    
+                    <!-- History Button -->
+                    <a href="../History/index.html" class="d-flex flex-column align-items-center text-decoration-none text-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+                            <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
+                            <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
+                            <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                        </svg>
+                        <small>History</small>
+                    </a>
+                    <div class="user-greeting-container dropdown" id="userGreetingTab">
+                        <button class="btn user-greeting-btn border-0 d-flex align-items-center gap-2" type="button" id="userGreetingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="position-relative">
+                                <!-- Avatar with gradient background -->
+                                <div class="rounded-circle d-flex justify-content-center align-items-center shadow-sm" 
+                                     style="width: 40px; height: 40px;">
+                                    <img src="img/user-svgrepo-com.svg" alt="User Avatar" class="rounded-circle" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <!-- Online status indicator -->
+                                <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-white" 
+                                      style="width: 10px; height: 10px;"></span>
+                            </div>
+                            
+                            <!-- Greeting -->
+                            <div class="greeting-text ms-1">
+                                <p class="mb-0 text-muted small fw-light">Hello,</p>
+                                <p class="mb-0 fw-semibold small text-dark" id="user-name"></p>
+                            </div>
+                            
+                            <!-- Dropdown chevron -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down ms-1 text-muted" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </button>
+                        
+                        <!-- Quick action -->
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 py-2" aria-labelledby="userGreetingDropdown">
+                            <li><a class="dropdown-item" id="profileLink">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2 text-danger" href="../Auth/Login/index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                </svg>
+                                Log out
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- <div class="rounded-circle d-flex justify-content-center align-items-center shadow-sm" 
+                                     style="width: 40px; height: 40px;">
+                                    <img src="img/user-svgrepo-com.svg" alt="User Avatar" class="rounded-circle" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div> -->
+    <div class="container mt-5">
+        <div class="row">
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content shadow-2xl rounded-lg overflow-hidden bg-gray-100">
+                <div class="modal-header bg-gray-800 text-white">
+                    <h5 class="modal-title font-semibold" id="productModalLabel">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        style="filter: invert(1);"></button>
+                </div>
+                <div class="modal-body p-6 flex flex-col">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- First Column: Image -->
+                        <div class="text-center flex flex-col items-center">
+                            <img id="modalProductImage" src=""
+                                class="w-full h-72 md:h-80 object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
+                                alt="Product Image">
+                        </div>
+
+                        <!-- Second Column: Details -->
+                        <div class="flex flex-col justify-between">
+                            <div>
+                                <h4 id="modalProductTitle" class="text-3xl font-bold text-gray-900 mb-3"></h4>
+                                <div class="flex items-center justify-between bg-white p-3 rounded-lg shadow-md">
+                                    <p class="text-xl text-green-600 font-semibold">💲<span
+                                            id="modalProductPrice"></span></p>
+                                    <p class="text-lg text-yellow-500 font-medium">⭐<span
+                                            id="modalProductRating"></span></p>
+                                </div>
+                                <p id="modalProductDescription"
+                                    class="mt-4 text-gray-700 text-md leading-relaxed bg-white p-4 rounded-lg shadow-md">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Notification-->
+    <div id="toastContainer" class="position-fixed top-0 end-0 p-3" style="z-index: 1050;">
+        <div id="liveToast"
+            class="toast align-items-center text-white bg-success shadow-lg rounded-lg border-0 overflow-hidden animate-toast"
+            role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex align-items-center p-3">
+                <div class="flex-grow-1">
+                    <p class="fw-bold mb-1">✅ Success!</p>
+                    <p class="mb-0">Item added successfully!</p>
+                </div>
+                <button type="button" class="btn-close btn-close-white ms-3" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="userProfileModal" tabindex="-1" aria-labelledby="userProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="userProfileModalLabel">
+                        <i class="fas fa-user-circle me-2"></i>User Profile
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div id="userProfileData">
+                        <!-- User data will be populated here by JavaScript -->
+                        <div class="text-center py-4">
+                            <div class="spinner-border text-success" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Loading user data...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</body>
+
+</html>
+
+<a href=""></a>
