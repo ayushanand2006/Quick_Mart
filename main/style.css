@@ -276,177 +276,300 @@
  }
 
  .hover-text-success:hover {
-    color: #198754 !important;
-}
+     color: #198754 !important;
+ }
 
-/* User greeting styles */
-.user-greeting-btn:hover {
-    background-color: #f8f9fa;
-}
+ /* User greeting styles */
+ .user-greeting-btn:hover {
+     background-color: #f8f9fa;
+ }
 
-.user-greeting-container .greeting-text {
-    transition: all 0.3s ease;
-}
+ .user-greeting-container .greeting-text {
+     transition: all 0.3s ease;
+ }
 
-.user-greeting-btn:hover .greeting-text {
-    transform: translateX(2px);
-}
+ .user-greeting-btn:hover .greeting-text {
+     transform: translateX(2px);
+ }
 
-@media (max-width: 576px) {
-    .greeting-text {
-        display: none;
-    }
-}
+ @media (max-width: 576px) {
+     .greeting-text {
+         display: none;
+     }
+ }
 
-/* User Profile Modal Styles */
-#userProfileModal .modal-content {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    overflow: hidden;
-}
+ /* User Profile Modal Styles */
+ #userProfileModal .modal-content {
+     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+     border-radius: 12px;
+     overflow: hidden;
+ }
 
-#userProfileModal .modal-header {
-    border-bottom: none;
-}
+ #userProfileModal .modal-header {
+     border-bottom: none;
+ }
 
-#userProfileModal .modal-footer {
-    border-top: none;
-}
+ #userProfileModal .modal-footer {
+     border-top: none;
+ }
 
-#userProfileModal .badge {
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 30px;
-}
+ #userProfileModal .badge {
+     font-weight: 500;
+     padding: 5px 10px;
+     border-radius: 30px;
+ }
 
-#userProfileModal .row {
-    align-items: center;
-}
+ #userProfileModal .row {
+     align-items: center;
+ }
 
-/* Add hover effect to stats boxes */
-#userProfileModal .border {
-    transition: all 0.3s ease;
-    border-color: #e9ecef !important;
-}
+ /* Add hover effect to stats boxes */
+ #userProfileModal .border {
+     transition: all 0.3s ease;
+     border-color: #e9ecef !important;
+ }
 
-#userProfileModal .border:hover {
-    background-color: #f8f9fa;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    border-color: #ced4da !important;
-}
+ #userProfileModal .border:hover {
+     background-color: #f8f9fa;
+     transform: translateY(-3px);
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+     border-color: #ced4da !important;
+ }
 
-/* Toast Container Styles */
-.toast-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 350px;
-}
+ /* Toast Container Styles */
+ .toast-container {
+     position: fixed;
+     top: 20px;
+     right: 20px;
+     z-index: 9999;
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     max-width: 350px;
+ }
 
-/* Toast Notification Styles */
-.toast {
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color: white;
-    font-weight: 500;
-    opacity: 0;
-    transform: translateX(100%);
-    animation: slideIn 0.3s forwards, fadeOut 0.5s forwards 3.5s;
-    position: relative;
-    overflow: hidden;
-}
+ /* Toast Notification Styles */
+ .toast {
+     display: flex;
+     align-items: center;
+     padding: 12px 16px;
+     border-radius: 8px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+     color: white;
+     font-weight: 500;
+     opacity: 0;
+     transform: translateX(100%);
+     animation: slideIn 0.3s forwards, fadeOut 0.5s forwards 3.5s;
+     position: relative;
+     overflow: hidden;
+ }
 
-/* Toast Types */
-.toast.success {
-    background-color: #10b981;
-}
+ /* Toast Types */
+ .toast.success {
+     background-color: #10b981;
+ }
 
-.toast.error {
-    background-color: #ef4444;
-}
+ .toast.error {
+     background-color: #ef4444;
+ }
 
-.toast.info {
-    background-color: #3b82f6;
-}
+ .toast.info {
+     background-color: #3b82f6;
+ }
 
-.toast.warning {
-    background-color: #f59e0b;
-}
+ .toast.warning {
+     background-color: #f59e0b;
+ }
 
-/* Toast Icon */
-.toast-icon {
-    margin-right: 12px;
-    font-size: 18px;
-}
+ /* Toast Icon */
+ .toast-icon {
+     margin-right: 12px;
+     font-size: 18px;
+ }
 
-/* Toast Message */
-.toast-message {
-    flex: 1;
-}
+ /* Toast Message */
+ .toast-message {
+     flex: 1;
+ }
 
-/* Toast Progress Bar */
-.toast-progress {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 3px;
-    background-color: rgba(255, 255, 255, 0.4);
-    width: 100%;
-    animation: progress 4s linear forwards;
-}
+ /* Toast Progress Bar */
+ .toast-progress {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     height: 3px;
+     background-color: rgba(255, 255, 255, 0.4);
+     width: 100%;
+     animation: progress 4s linear forwards;
+ }
 
-/* Toast Close Button */
-.toast-close {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-    margin-left: 12px;
-    padding: 0;
-}
+ /* Toast Close Button */
+ .toast-close {
+     background: none;
+     border: none;
+     color: white;
+     cursor: pointer;
+     font-size: 18px;
+     opacity: 0.7;
+     transition: opacity 0.2s;
+     margin-left: 12px;
+     padding: 0;
+ }
 
-.toast-close:hover {
-    opacity: 1;
-}
+ .toast-close:hover {
+     opacity: 1;
+ }
 
-/* Animations */
-@keyframes slideIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+ /* Animations */
+ @keyframes slideIn {
+     to {
+         opacity: 1;
+         transform: translateX(0);
+     }
+ }
 
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        transform: translateY(-20px);
-        pointer-events: none;
-    }
-}
+ @keyframes fadeOut {
+     to {
+         opacity: 0;
+         transform: translateY(-20px);
+         pointer-events: none;
+     }
+ }
 
-@keyframes progress {
-    to {
-        width: 0%;
-    }
-}
+ @keyframes progress {
+     to {
+         width: 0%;
+     }
+ }
 
-/* Small screen adjustments */
-@media (max-width: 576px) {
-    .toast-container {
-        right: 10px;
-        left: 10px;
-        max-width: none;
-    }
-}
+ /* From Uiverse.io by vinodjangid07 */
+ .card {
+     width: 300px;
+     height: fit-content;
+     background: rgb(255, 255, 255);
+     border-radius: 20px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     gap: 20px;
+     padding: 30px;
+     position: relative;
+     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.068);
+ }
+
+ .card-content {
+     width: 100%;
+     height: fit-content;
+     display: flex;
+     flex-direction: column;
+     gap: 5px;
+ }
+
+ .card-heading {
+     font-size: 20px;
+     font-weight: 700;
+     color: rgb(27, 27, 27);
+ }
+
+ .card-description {
+     font-weight: 100;
+     color: rgb(102, 102, 102);
+ }
+
+ .card-button-wrapper {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+ }
+
+ .card-button {
+     width: 50%;
+     height: 35px;
+     border-radius: 10px;
+     border: none;
+     cursor: pointer;
+     font-weight: 600;
+ }
+
+ .primary {
+     background-color: rgb(255, 114, 109);
+     color: white;
+ }
+
+ .primary:hover {
+     background-color: rgb(255, 73, 66);
+ }
+
+ .secondary {
+     background-color: #ddd;
+ }
+
+ .secondary:hover {
+     background-color: rgb(197, 197, 197);
+ }
+
+ .exit-button {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border: none;
+     background-color: transparent;
+     position: absolute;
+     top: 20px;
+     right: 20px;
+     cursor: pointer;
+ }
+
+ .exit-button:hover svg {
+     fill: black;
+ }
+
+ .exit-button svg {
+     fill: rgb(175, 175, 175);
+ }
+
+ .custom-toast {
+     position: fixed;
+     top: 20px;
+     left: 50%;
+     transform: translateX(-50%);
+     background: #333;
+     color: white;
+     padding: 10px 20px;
+     border-radius: 5px;
+     z-index: 1050;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+
+ .top-center-toast {
+     animation: fadeIn 0.5s ease-in-out, fadeOut 0.5s ease-in-out 1.5s forwards;
+ }
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(-20px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ @keyframes fadeOut {
+     from {
+         opacity: 1;
+         transform: translateY(0);
+     }
+
+     to {
+         opacity: 0;
+         transform: translateY(-20px);
+     }
+ }

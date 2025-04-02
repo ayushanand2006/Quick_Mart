@@ -29,7 +29,7 @@ form.addEventListener("submit", function (e) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm-password").value;
-    
+
     if (password === confirmPassword) {
         // Create user object
         const user = {
@@ -39,16 +39,16 @@ form.addEventListener("submit", function (e) {
             password: password,
             status: "Inactive"
         };
-        
+
         // Get users from localStorage or create an empty array
         const users = JSON.parse(localStorage.getItem("users")) || [];
         users.push(user);
-        
+
         // Save updated users list to localStorage
         localStorage.setItem("users", JSON.stringify(users));
-        
+
         showAlert("success", "User registered successfully");
-        
+
         // Redirect after a slight delay to ensure data is saved
         setTimeout(function () {
             window.location.href = "../Login/index.html";
@@ -63,7 +63,7 @@ function showAlert(type, message) {
     const alertInnerBox = document.getElementById("alert-box");
     const alertMessage = document.getElementById("alert-message");
     const alertIcon = document.getElementById("alert-icon");
-    
+
     // Define alert types with icons and colors
     const types = {
         success: {
@@ -83,18 +83,18 @@ function showAlert(type, message) {
             className: "toast-info"
         }
     };
-    
+
     // Apply alert type styles
     alertMessage.innerText = message;
     alertIcon.innerHTML = types[type].icon;
-    
+
     // Remove all previous classes and add the new one
     alertInnerBox.classList.remove("toast-success", "toast-error", "toast-warning", "toast-info");
     alertInnerBox.classList.add(types[type].className);
-    
+
     // Show alert
     alertBox.style.display = "block";
-    
+
     // Auto close after 3.5 seconds
     setTimeout(closeAlert, 3500);
 }
@@ -102,10 +102,10 @@ function showAlert(type, message) {
 function closeAlert() {
     const alertBox = document.getElementById("custom-alert");
     const alertInnerBox = document.getElementById("alert-box");
-    
+
     // Add slide-out animation
     alertInnerBox.classList.add("slide-out");
-    
+
     // Wait for animation to complete before hiding
     setTimeout(() => {
         alertBox.style.display = "none";

@@ -1,16 +1,31 @@
 const row = document.querySelector(".row");
+const url = "https://dummyjson.com/products";
+const datafn = async function () {
+    try {
+        // loader.style.display = "flex";
+        JSON.parse(localStorage.getItem("productData")) || []
+        const result = await fetch(url)
+        // console.log(result);
+        const data = await result.json()
+        const productData = data.products
+        // console.log(productData);
 
-async function DataFunction() {
-    const product = await fetch('https://dummyjson.com/products');
-    const data = await product.json();
-    const productData = data.products;
+        // console.log(data);
+        localStorage.setItem("productData", JSON.stringify(productData))
+        show(productData)
+    } catch (error) {
+        console.log(error);
+    }
+}
+datafn()
 
-    console.log(productData);
-    localStorage.setItem("productData", JSON.stringify(productData));
+// console.log(productData);
+// localStorage.setItem("productData", JSON.stringify(productData));
+function show(products) { 
 
     let productresult = '';
 
-    productData.forEach((product, index) => {
+    products.forEach((product, index) => {
         productresult += `
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
             <div class="product-card">
@@ -28,7 +43,7 @@ async function DataFunction() {
 
                     <div class="product-buttons mt-4">
                         <div class="d-flex gap-2 modal-body">
-                            <button class="btn btn-outline-success btn-sm btn-custom w-50 d-flex align-items-center justify-content-center gap-1 add-to-cart-btn" data-id="${index}">
+                            <button class="btn btn-outline-success btn-sm btn-custom w-50 d-flex align-items-center justify-content-center gap-1 add-to-cart-btn" data-id="${index}" onclick="handleCart(${index})">
                                 <i class="fas fa-cart-plus"></i> Add
                             </button>
                             
@@ -44,14 +59,15 @@ async function DataFunction() {
 
     row.innerHTML = productresult;
 
-    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            handleCart(this.getAttribute("data-id"));
-        });
-    });
 }
 
-DataFunction();
+// show()
+// document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+//     button.addEventListener("click", function () {
+//         handleCart(this.getAttribute("data-id"));
+//     });
+// });
+
 
 // ---- Handle Add to Cart ----
 function handleCart(id) {
@@ -96,7 +112,7 @@ function loginCheck() {
         currentUser.forEach(user => {
             const currentUserEmail = user.email
             const currentUserPassword = user.password
-            console.log(currentUserEmail, currentUserPassword);
+            // console.log(currentUserEmail, currentUserPassword);
             let currenUserData = users.find(user => user.email === currentUserEmail && user.password === currentUserPassword && user.status === "active")
             userName.innerText = currenUserData.firstName
         });
@@ -132,27 +148,27 @@ function handleDescription(id) {
 }
 
 // Ye function profile modal ko kholta hai jab user profile link pe click karta hai
-document.getElementById("profileLink").addEventListener("click", function() {
+document.getElementById("profileLink").addEventListener("click", function () {
     // Ye function localStorage se current user ki details ko uthata hai
     const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    
+
     // Jab user logged in hai tab hi profile modal khulega
     if (currentUser.length > 0) {
         const userEmail = currentUser[0].email;
         const userPassword = currentUser[0].password;
-        
+
         // Ye function active user ko array me se dhoond ta hai
-        const userData = users.find(user => 
-            user.email === userEmail && 
-            user.password === userPassword && 
+        const userData = users.find(user =>
+            user.email === userEmail &&
+            user.password === userPassword &&
             user.status === "active"
         );
-        
+
         if (userData) {
             // Phir user data ko modal me dikhata hain
             const profileData = document.getElementById("userProfileData");
-            
+
             // Profile modal me user data ko set Karta hai ye function
             profileData.innerHTML = `
                 <div class="text-center mb-4">
@@ -179,7 +195,7 @@ document.getElementById("profileLink").addEventListener("click", function() {
                         <div class="col-8">${userData.lastName || "Not set"}</div>
                     </div>
             `;
-            
+
             // Profile modal ko show karta hai ye function
             const profileModal = new bootstrap.Modal(document.getElementById("userProfileModal"));
             profileModal.show();
@@ -189,3 +205,48 @@ document.getElementById("profileLink").addEventListener("click", function() {
         window.location.href = "../Auth/Register/index.html";
     }
 });
+
+
+// Ye function logout karta hai user ko
+document.getElementById("confirmLogout").addEventListener("click", function () {
+
+    setTimeout(() => {
+        const logoutModal = document.getElementById("logoutModal");
+        const modalInstance = bootstrap.Modal.getInstance(logoutModal);
+        modalInstance.hide();
+    }, 500);
+
+    const toastId = `toast-${Date.now()}`;
+
+    const toastHTML = `
+        <div id="${toastId}" class="custom-toast top-center-toast">
+            <div>
+                <p class="fw-bold mb-1">User Successfully Logged Out. Redirecting...</p>
+            </div>
+            <button type="button" class="btn-close btn-close-white ms-3" aria-label="Close" onclick="removeToast('${toastId}')"></button>
+        </div>`;
+
+    const toastContainer = document.getElementById("toastContainer");
+    toastContainer.insertAdjacentHTML("beforeend", toastHTML);
+
+    setTimeout(() => {
+        removeToast(toastId);
+        window.location.href = "../Auth/Login/index.html"; // Redirect to login page
+    }, 1700);
+});
+
+function removeToast(toastId) {
+    const toastElement = document.getElementById(toastId);
+    if (toastElement) {
+        toastElement.remove();
+    }
+}
+
+document.getElementById("search_box").addEventListener("input", function () {
+    var searchValue = this.value.toLowerCase();
+    var productCards = JSON.parse(localStorage.getItem("productData")) || [];
+    var filteredProducts = productCards.filter(function (product) {
+        return product.title.toLowerCase().includes(searchValue);
+    });
+    show(filteredProducts);
+})

@@ -431,3 +431,38 @@ document.getElementById("profileLink").addEventListener("click", function() {
         window.location.href = "../Auth/Register/index.html";
     }
 });
+
+// Ye function logout karta hai user ko
+document.getElementById("confirmLogout").addEventListener("click", function () {
+
+    setTimeout(() => {
+        const logoutModal = document.getElementById("logoutModal");
+        const modalInstance = bootstrap.Modal.getInstance(logoutModal);
+        modalInstance.hide();
+    }, 500);
+
+    const toastId = `toast-${Date.now()}`;
+
+    const toastHTML = `
+        <div id="${toastId}" class="custom-toast top-center-toast">
+            <div>
+                <p class="fw-bold mb-1">User Successfully Logged Out. Redirecting...</p>
+            </div>
+            <button type="button" class="btn-close btn-close-white ms-3" aria-label="Close" onclick="removeToast('${toastId}')"></button>
+        </div>`;
+
+    const toastContainer = document.getElementById("toastContainer");
+    toastContainer.insertAdjacentHTML("beforeend", toastHTML);
+
+    setTimeout(() => {
+        removeToast(toastId);
+        window.location.href = "../Auth/Login/index.html"; // Redirect to login page
+    }, 1700);
+});
+
+function removeToast(toastId) {
+    const toastElement = document.getElementById(toastId);
+    if (toastElement) {
+        toastElement.remove();
+    }
+}
